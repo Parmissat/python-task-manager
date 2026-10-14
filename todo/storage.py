@@ -22,15 +22,18 @@ class Storage :
                 reader = csv.reader(file)
 
                 for row in reader:
-                    title, des, priority, completed = row
+                    try:
+                        title, des, priority, completed = row
 
+                        task = Task(
+                            title,
+                            des,
+                            Priority(priority),
+                            completed == "True"
+                        )
+                    except ValueError:
+                        continue
 
-                    task = Task(
-                        title,
-                        des,
-                        Priority(priority),
-                        completed == "True"
-                    )
                     tasks.append(task)
 
 

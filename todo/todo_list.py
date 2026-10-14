@@ -1,4 +1,3 @@
-
 class ToDoList:
 
     def __init__(self):
@@ -18,6 +17,7 @@ class ToDoList:
     def add_task(self, task):
         self.tasks.append(task)
 
+    # NOTE: sorts self.tasks in place; the GUI numbers tasks by this order.
     def show_tasks(self):
         self.sort_priority()
         return self.tasks
@@ -40,12 +40,12 @@ class ToDoList:
         self.tasks[index].mark_completed()
         return self.tasks[index]
     
-    def edit_task(self, task_number, title=None, des=None, priority=None, completed=None):
+    def edit_task(self, task_number, title=None, des=None, priority=None):
         index = task_number-1
         if index < 0 or index >= len(self.tasks):
             return False
         task = self.tasks[index]
-        task.edit(title, des, priority, completed)
+        task.edit(title, des, priority)
         return True
         
     def search_tasks(self, keyword):
@@ -54,4 +54,3 @@ class ToDoList:
             if keyword.lower() in task.title.lower():
                 results.append(task)
         return results
-

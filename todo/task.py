@@ -16,7 +16,7 @@ class Task:
     def mark_completed(self):
         self.completed = True
 
-    def edit(self, title=None, des=None , priority=None, completed = None):
+    def edit(self, title=None, des=None , priority=None):
         if title: self.title = title
         if des: self.des = des
         if priority: self.priority = priority
