@@ -16,9 +16,12 @@ class Task:
     def mark_completed(self):
         self.completed = True
 
+    def mark_incomplete(self):
+        self.completed = False
+
     def edit(self, title=None, des=None , priority=None):
         if title: self.title = title
-        if des: self.des = des
+        if des is not None: self.des = des
         if priority: self.priority = priority
         
 
@@ -26,4 +29,3 @@ class Task:
         
         status = "✅" if self.completed else "❌"
         return f"{status} | Title: {self.title} | Description: {self.des} | Priority: {self.priority.value}"
-    

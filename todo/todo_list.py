@@ -39,6 +39,14 @@ class ToDoList:
         
         self.tasks[index].mark_completed()
         return self.tasks[index]
+
+    def mark_task_incomplete(self, task_number):
+        index = task_number-1
+        if index < 0 or index >= len(self.tasks):
+            return "invalid task number"
+
+        self.tasks[index].mark_incomplete()
+        return self.tasks[index]
     
     def edit_task(self, task_number, title=None, des=None, priority=None):
         index = task_number-1
